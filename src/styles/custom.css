@@ -1,0 +1,36 @@
+/* Dark mode colors */
+:root {
+    /* Cosmic / Gamma-ray Violet Accents */
+    --sl-color-accent-low: #2e1065;   /* Deep void purple */
+    --sl-color-accent: #8b5cf6;       /* Energetic gamma-ray violet */
+    --sl-color-accent-high: #ddd6fe;  /* Starlight glow */
+    
+    /* Neutrals: Deep space slate tones */
+    --sl-color-white: #ffffff;
+    --sl-color-gray-1: #e2e8f0;       
+    --sl-color-gray-2: #94a3b8;
+    --sl-color-gray-3: #64748b;
+    --sl-color-gray-4: #475569;
+    --sl-color-gray-5: #1e293b;
+    --sl-color-gray-6: #0f172a;       
+    --sl-color-black: #090e17;        /* Outer space black */
+}
+
+/* Light mode colors */
+:root[data-theme='light'] {
+    /* Gamma-ray Violet Accents for Light Mode */
+    --sl-color-accent-low: #ede9fe;   
+    --sl-color-accent: #7c3aed;       /* Slightly darker violet for readability */
+    --sl-color-accent-high: #4c1d95;  
+    
+    /* Neutrals: Inverted slate tones */
+    --sl-color-white: #090e17;        
+    --sl-color-gray-1: #0f172a;
+    --sl-color-gray-2: #1e293b;
+    --sl-color-gray-3: #475569;
+    --sl-color-gray-4: #64748b;
+    --sl-color-gray-5: #94a3b8;
+    --sl-color-gray-6: #e2e8f0;
+    --sl-color-gray-7: #f8fafc;       /* Soft light background */
+    --sl-color-black: #ffffff;
+}
