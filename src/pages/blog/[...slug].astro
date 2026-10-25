@@ -1,0 +1,9 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro"
+import { getNewsPages, renderMarkdown } from "../../lib/content"
+export async function getStaticPaths() {
+  return Promise.all(getNewsPages().map(async (page) => ({ params: { slug: page.slug.replace(/^news\//, "") }, props: { page, html: await renderMarkdown(page.body) } })))
+}
+const { page, html } = Astro.props
+---
+<ContentLayout page={page} html={html} />

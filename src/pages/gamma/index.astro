@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import Icon from "../../components/Icon.astro"
+import { getPagesBySection } from "../../lib/content"
+const pages = getPagesBySection("gamma").filter((page) => page.slug !== "gamma")
+---
+<BaseLayout title="GAMMA research" description="Research notes and mission documentation from the CAPIBARA-GAMMA programme." currentSlug="gamma">
+  <section class="library-hero gamma-library page-width"><p class="eyebrow"><span class="eyebrow-dot"></span> CAPIBARA-GAMMA</p><h1>Questions that<br /><em>reach far.</em></h1><p>Research notes, mission planning, and the scientific ideas guiding our gamma-ray and X-ray transient observation programme.</p></section>
+  <section class="docs-index page-width"><div class="docs-group"><p class="eyebrow">GAMMA research library</p><div class="docs-links">{pages.map((page) => <a href={`/${page.slug}`}><span><small>{page.category}</small>{page.title}</span><Icon name="arrow" size={16} /></a>)}</div></div></section>
+</BaseLayout>

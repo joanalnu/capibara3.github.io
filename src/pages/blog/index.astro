@@ -1,0 +1,21 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro"
+import Icon from "../../components/Icon.astro"
+import { getNewsPages } from "../../lib/content"
+const posts = getNewsPages()
+---
+<BlogLayout title="Blog & resources" currentSlug="blog">
+  <section class="blog-hero page-width">
+    <div><p class="eyebrow"><span class="eyebrow-dot"></span> From the collaboration</p><h1>News, ideas,<br /><em>and progress.</em></h1></div>
+    <p>Follow the work behind the missions: announcements, reports, conference notes, and opportunities to join the collaboration.</p>
+  </section>
+  <section class="blog-list page-width">
+    <div class="blog-list-heading"><p class="eyebrow">Latest updates</p><span>{posts.length} stories</span></div>
+    {posts.map((post, index) => <a class:list={{ "blog-card": true, featured: index === 0 }} href={`/blog/${post.slug.replace(/^news\//, "")}`}>
+      <div class="blog-card-index">{String(index + 1).padStart(2, "0")}</div>
+      <div class="blog-card-body"><p class="blog-meta">{post.date ?? "Resource"} <span>·</span> {post.category}</p><h2>{post.title}</h2><p>{post.description || "Read the latest from CAPIBARA."}</p></div>
+      <span class="blog-card-arrow"><Icon name="arrow" size={18} /></span>
+    </a>)}
+  </section>
+  <section class="blog-resources"><div class="page-width"><p class="eyebrow">Resource library</p><h2>Documents worth<br /><em>keeping close.</em></h2><div class="resource-links"><a href="/news"><span>01</span><strong>News archive</strong><Icon name="arrow" size={16} /></a><a href="/documentation"><span>02</span><strong>Documentation</strong><Icon name="arrow" size={16} /></a><a href="/gamma"><span>03</span><strong>GAMMA research notes</strong><Icon name="arrow" size={16} /></a></div></div></section>
+</BlogLayout>

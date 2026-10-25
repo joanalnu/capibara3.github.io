@@ -1,0 +1,9 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro"
+import { getPagesBySection, renderMarkdown } from "../../lib/content"
+export async function getStaticPaths() {
+  return Promise.all(getPagesBySection("gamma").filter((page) => page.slug !== "gamma").map(async (page) => ({ params: { slug: page.slug.replace(/^gamma\//, "") }, props: { page, html: await renderMarkdown(page.body) } })))
+}
+const { page, html } = Astro.props
+---
+<DocsLayout page={page} html={html} section="GAMMA" />
