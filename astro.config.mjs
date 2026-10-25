@@ -24,11 +24,11 @@ export default defineConfig({
 				{
 					label: 'Coding',
 					items: [
-            { label: "UNIX", slug: "coding/11_unix" },
-            { label: "Terminal", slug: "coding/12_terminal" },
-				    { label: "Git", slug: "coding/13_git" },
-				    { label: "GitHub", slug: "coding/14_github" },
-				    { label: "LaTeX", slug: "coding/15_local_latex" },
+            { label: "UNIX", slug: "coding/101_unix" },
+            { label: "Terminal", slug: "coding/102_terminal" },
+				    { label: "Git", slug: "coding/103_git" },
+				    { label: "GitHub", slug: "coding/104_github" },
+				    { label: "LaTeX", slug: "coding/105_local_latex" },
 					],
 				},
         {

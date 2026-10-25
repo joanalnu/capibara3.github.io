@@ -9,8 +9,8 @@ author: joanalnu
 
 
 :::caution[Prerequisites]
-- [UNIX](./11_unix.md)
-- [Terminal](./12_terminal.md)
+- [UNIX](../101_unix)
+- [Terminal](../102_terminal)
 :::
 
 ## 1. Why Git?
@@ -58,6 +58,7 @@ As we discovered in [12_terminal](./12_terminal.md), `../` describes the path to
 | `git add .`               | Stages all changed files for the next save.                              |
 | `git commit -m "message"` | Saves your changes with a short description of what you did.             |
 | `git log`                 | Shows your history of saves (commits).                                   |
+
 
 ## 4. Branching: Works in parallel
 

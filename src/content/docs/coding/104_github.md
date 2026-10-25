@@ -8,9 +8,9 @@ If Git is the "Time Machine" on your computer, **GitHub** is the "Space Statio
 :::
 
 :::caution[Prerequisites]
-- [UNIX](./11_unix.md)
-- [Terminal](./12_terminal.md)
-- [Git](./13_git.md)
+- [UNIX](../101_unix)
+- [Terminal](../102_terminal)
+- [Git](../103_git)
 :::
 
 ## 1. Why GitHub?
