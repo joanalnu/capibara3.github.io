@@ -4,12 +4,12 @@
   "private": true,
   "version": "4.5.2",
   "type": "module",
-  "author": "jackyzha0 <j.zhao2k19@gmail.com>",
+  "author": "joanalnu",
   "license": "MIT",
-  "homepage": "https://capibara3.github.io",
+  "homepage": "https://capibara.pages.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/capibara3/capibara3.github.io.git"
+    "url": "https://github.com/joanalnu/capibara3.github.io.git"
   },
   "scripts": {
     "dev": "astro dev",
@@ -30,9 +30,6 @@
     "blog",
     "quartz"
   ],
-  "bin": {
-    "quartz": "./quartz/bootstrap-cli.mjs"
-  },
   "dependencies": {
     "@clack/prompts": "^0.11.0",
     "@floating-ui/dom": "^1.7.4",
