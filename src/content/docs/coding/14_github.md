@@ -1,29 +1,31 @@
 ---
-title: 14 GitHub
+title: GitHub
 author: joanalnu
 ---
-> [!ABSTRACT]
-> If Git is the "Time Machine" on your computer, **GitHub** is the "Space Station" in the cloud where everyone parks their time machines. It’s the central hub where the **CAPIBARA Collaboration** stores code, tracks bugs, and works together.
 
-> [!WARNING]- Prerequisites
-> You should have completed:
-> - [[11_unix]]
-> - [[12_terminal]]
-> - [[13_git]]
+:::tip[Summary]
+If Git is the "Time Machine" on your computer, **GitHub** is the "Space Station" in the cloud where everyone parks their time machines. It’s the central hub where the **CAPIBARA Collaboration** stores code, tracks bugs, and works together.
+:::
 
-# 1. Why GitHub?
+:::caution[Prerequisites]
+- [UNIX](./11_unix.md)
+- [Terminal](./12_terminal.md)
+- [Git](./13_git.md)
+:::
+
+## 1. Why GitHub?
 
 - **The Cloud:** Your code is backed up safely online.
 - **Collaboration:** It’s like a social network for code. You can "Follow" projects and see what teammates are building.
 - **Project Management:** Use "Issues" to track bugs and "Pull Requests" to review code before it goes live.
 
-# 2. Setting Up Your Account
+## 2. Setting Up Your Account
 
 1. **Sign Up:** Go to [GitHub.com](https://github.com/) and create an account.
 2. **Join the Team:** Send your username to the coordinators (see tutorial 02). We will invite you to the **CAPIBARA Organization**.
 3. **Security:** We highly recommend enabling **Two-Factor Authentication (2FA)** in your settings.
 
-# 3. The GitHub 'Dictionary'
+## 3. The GitHub 'Dictionary'
 
 |**Term**|**What it actually means**|
 |---|---|
@@ -33,7 +35,9 @@ author: joanalnu
 |**Push**|Sending your local saves (commits) _up_ to GitHub.|
 |**Pull**|Grabbing new updates from GitHub _down_ to your computer.|
 |**Pull Request (PR)**|Asking the boss: "I finished my code, can you check it and add it to the main project?"|
-# 4. SSH: Authentification
+
+
+## 4. SSH: Authentification
 
 To talk to GitHub from your terminal without typing your password every 5 minutes (since it is a deprecated function), you need an **SSH Key**. Think of it as a secret handshake between your laptop and GitHub.
 
@@ -58,7 +62,7 @@ ssh-add ~/.ssh/id_ed25519
 ssh -T git@github.com
 ```
 
-# 5. Local-Remote Essential Commands
+## 5. Local-Remote Essential Commands
 
 Git lives on your computer, but **GitHub** lives on the internet. To move code between them:
 
@@ -66,6 +70,6 @@ Git lives on your computer, but **GitHub** lives on the internet. To move code
 - **`git push`**: Sends your local saves (commits) up to the cloud.
 - **`git pull`**: Grabs the latest changes from the cloud and brings them to your computer.
 
-
-> [!SUCCESS]
-> You have the tools and the connection. Collaboration on GitHub, be it for code, research, documentation, or paper writing is key. Check out the [[23_CONTRIBUTING|contributing guidelines]] to learn about GitHub and how to use it appropriately. The next tutorial is also a very important one for researchers: [[15_local_latex|LaTeX]].
+:::tip[Contributing]
+You have the tools and the connection. Collaboration on GitHub, be it for code, research or paper writing is key. Check out the [Contributing Guidelines](../governance/23_CONTRIBUTING.md) to learn about GitHub and how to use it appropriately.
+:::
