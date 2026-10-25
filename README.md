@@ -1,1 +1,0 @@
-# CAPIBARA Collaboration Official Website
