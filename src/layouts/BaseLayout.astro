@@ -1,0 +1,115 @@
+---
+import Icon from "../components/Icon.astro"
+import "../styles/global.css"
+import { getPages } from "../lib/content"
+
+const { title = "CAPIBARA", description = "Student-led space science for the high-energy universe.", currentSlug = "" } = Astro.props
+const pages = getPages()
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/crd", label: "CRD mission" },
+  { href: "/gamma", label: "GAMMA mission" },
+  { href: "/blog", label: "Blog" },
+  { href: "/join-us", label: "Join us" },
+]
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title} · CAPIBARA</title>
+  </head>
+  <body>
+    <div class="site-noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="CAPIBARA home">
+          <span class="brand-mark"><span></span><span></span><span></span></span>
+          <span>CAPIBARA</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          {navItems.map((item) => <a class:list={{ active: item.href.slice(1) === currentSlug || (item.href === "/" && !currentSlug) }} href={item.href}>{item.label}</a>)}
+        </nav>
+        <div class="header-actions">
+          <label class="search-box" aria-label="Search the site">
+            <Icon name="search" size={17} />
+            <input id="site-search" type="search" placeholder="Search" autocomplete="off" />
+            <kbd>⌘ K</kbd>
+          </label>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme"><Icon name="moon" size={18} /></button>
+          <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      </div>
+    </header>
+    <div class="search-results" id="search-results" aria-live="polite">
+      <div class="search-results-inner">
+        <p class="eyebrow">Search results</p>
+        <div id="search-list"></div>
+      </div>
+    </div>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="/"><span class="brand-mark"><span></span><span></span><span></span></span><span>CAPIBARA</span></a>
+          <p>Student-led space science for the high-energy universe.</p>
+        </div>
+        <div class="footer-links">
+          <p class="eyebrow">Explore</p>
+          <a href="/crd">CRD mission</a><a href="/gamma">GAMMA mission</a><a href="/blog">Blog</a><a href="/documentation">Documentation</a>
+        </div>
+        <div class="footer-links">
+          <p class="eyebrow">Connect</p>
+          <a href="https://github.com/CAPIBARA3">GitHub <Icon name="external" size={13} /></a>
+          <a href="https://www.instagram.com/capibara_collaboration/">Instagram <Icon name="external" size={13} /></a>
+          <a href="/contact">Contact <Icon name="arrow" size={13} /></a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} CAPIBARA Collaboration</span><span>Built for curious minds, on Earth and beyond.</span></div>
+    </footer>
+    <script define:vars={{ pages: pages.map(({ title, description, slug, category }) => ({ title, description, slug, category })) }}>
+      const root = document.documentElement
+      const themeToggle = document.querySelector("#theme-toggle")
+      const storedTheme = localStorage.getItem("capibara-theme")
+      if (storedTheme === "light") root.dataset.theme = "light"
+      themeToggle?.addEventListener("click", () => {
+        const isLight = root.dataset.theme === "light"
+        root.dataset.theme = isLight ? "" : "light"
+        localStorage.setItem("capibara-theme", isLight ? "dark" : "light")
+      })
+      const menuToggle = document.querySelector("#menu-toggle")
+      const mobileMenu = document.querySelector("#mobile-menu")
+      menuToggle?.addEventListener("click", () => {
+        const open = menuToggle.getAttribute("aria-expanded") === "true"
+        menuToggle.setAttribute("aria-expanded", String(!open))
+        mobileMenu?.classList.toggle("open", !open)
+      })
+      const searchInput = document.querySelector("#site-search")
+      const results = document.querySelector("#search-results")
+      const resultList = document.querySelector("#search-list")
+      const renderResults = (query) => {
+        if (!resultList || !results) return
+        const matches = pages.filter((page) => `${page.title} ${page.description} ${page.category}`.toLowerCase().includes(query.toLowerCase())).slice(0, 8)
+        resultList.innerHTML = matches.length
+          ? matches.map((page) => `<a class="search-result" href="/${page.slug}"><span>${page.category}</span><strong>${page.title}</strong><small>${page.description || "Explore this CAPIBARA resource."}</small></a>`).join("")
+          : '<p class="muted">No pages found. Try a different search.</p>'
+        results.classList.toggle("visible", query.length > 1)
+      }
+      searchInput?.addEventListener("input", (event) => renderResults(event.target.value.trim()))
+      document.addEventListener("keydown", (event) => {
+        if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") { event.preventDefault(); searchInput?.focus() }
+        if (event.key === "Escape") { results?.classList.remove("visible"); searchInput.value = "" }
+      })
+    </script>
+  </body>
+</html>

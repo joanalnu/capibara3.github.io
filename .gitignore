@@ -1,3 +1,4 @@
 .DS_Store
 content/.trash
-public/
+dist/
+.astro/

@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
-  "include": ["**/*.ts", "**/*.tsx", "./package.json"],
-  "exclude": ["build/**/*.d.ts"]
+  "include": ["src/**/*.ts", "src/**/*.astro", "astro.config.mjs"],
+  "exclude": ["quartz", "node_modules", "dist"]
 }
