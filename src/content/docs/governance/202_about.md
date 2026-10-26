@@ -2,6 +2,8 @@
 title: 22 About
 author: joanalnu
 ---
+
+
 # Why does CAPIBARA exist?
 
 The Collaboration for the Analysis of Photonic and Ionic Bursts and Radiation (CAPIBARA) was established in July 2024 with a clear mandate:

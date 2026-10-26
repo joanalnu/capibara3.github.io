@@ -41,26 +41,26 @@ export default defineConfig({
             { label: "NumPy & Pandas", slug: "python/43_numpy_pandas" },
 				    { label: "Matplotlib", slug: "python/44_matplotlib" },
 				    { label: "SciPt", slug: "python/45_scipy_fitting" },
-          ]
+          ],
         },
-        // {
-        //   label: 'Governance',
-        //   items: [
-        //     { label: "Code of Conduct", slug: "governance/21_CODE_OF_CONDUCT" },
-        //     { label: "About", slug: "governance/22_about" },
-        //     { label: "Contributing Guidelines", slug: "governance/23_CONTRIBUTING" },
-        //     { label: "CAPIBARA Handbook", slug: "governance/24_CAPIBARA_HANDBOOK" },
-        //     { label: "Privacy Policy", slug: "governance/25_PRIVACY_POLICY" },
-        //   ]
-        // },
+        {
+          label: 'Governance',
+          items: [
+            { label: "Code of Conduct", slug: "governance/201_code_of_conduct" },
+            { label: "About", slug: "governance/202_about" },
+            { label: "Contributing", slug: "governance/203_contributing" },
+            { label: "Handbook", slug: "governance/204_capibara_handbook" },
+            { label: "Privacy Policy", slug: "governance/205_privacy_policy" },
+          ],
+        },
         {
           label: 'Infrastructure',
           items: [
             { label: "Packages", slug: "infrastructure/46_packages" },
             { label: "Docker", slug: "infrastructure/47_docker" },
             { label: "Website", slug: "infrastructure/website"}
-          ]
-        }
+          ],
+        },
 			],
 		}),
 	],

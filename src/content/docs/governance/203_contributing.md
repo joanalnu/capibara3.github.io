@@ -3,23 +3,23 @@ title: 23 Contributing Guidelines
 author: joanalnu
 ---
 
-> [!ABSTRACT]
-> The goal of this page is to master the GitHub Workflow. In a scientific collaboration, GitHub is more than a code host. We use it to ensure our research is reproducible, our code is peer-reviewed, and our documentation is version-controlled.
+:::tip[Summary]
+The goal of this page is to master the GitHub Workflow. In a scientific collaboration, GitHub is more than a code host. We use it to ensure our research is reproducible, our code is peer-reviewed, and our documentation is version-controlled.
+:::
 
-> [!WARNING]- Prerequisites
-> You must have completed these tutorials:
-> 
-> - [[11_unix]]
-> - [[12_terminal]]
-> - [[13_git]]
-> - [[14_github]]
+:::caution[Prerequisites]
+- [Unix](../coding/101_unix)
+- [Terminal](../coding/102_terminal)
+- [Git](../coding/103_git)
+- [GitHub](../coding/104_github)
+:::
 
-# Why Collaborate via GitHub?
+## Why Collaborate via GitHub?
 
 In a distributed system, we work asynchronously, GitHub acts as our "single source of truth," allowing us to share files without version problems, accurately track progress, and communicate in the team without additional tools.
 
 
-# 1. Branching Strategy
+## 1. Branching Strategy
 
 To keep our research stable, we never work on the `main` branch. The `main` branch is the "production" branch, which contains stable and working code with written documentation.
 
@@ -27,7 +27,7 @@ To keep our research stable, we never work on the `main` branch. The `main` bran
 - Naming convention: `<username>/<topic>`
 - Example: `alice42/update-readme`, `bob52/include_w0waCDM_model` 
 
-# 2. The Contribution Cycle
+## 2. The Contribution Cycle
 Contributing to a research project follows a specific loop: **Issue → Branch → Commit → PR**.
 
 1. **Find or Create an Issue**
@@ -56,12 +56,14 @@ git checkout -b username/topic
 - `docs(...)`: Updates the documentation or $\LaTeX$ manuscripts.
 - `refactor(...)`: Cleaning up code without changing how it works.
 
-> [!EXAMPLE]
-> ```bash
-> git commit -m "feat(physics): add gamma-ray detector efficiency curve"
-> ```
+:::note[Example]
+```bash
+git commit -m "feat(physics): add gamma-ray detector efficiency curve"
+```
+:::
 
-# 3. Pull Requests (Peer Review of Code)
+
+## 3. Pull Requests (Peer Review of Code)
 
 Once your work is ready, you open a Pull Request (PR) to merge your branch into `main`. This is where the "Internal Peer Review" happens.
 
@@ -72,48 +74,48 @@ Once your work is ready, you open a Pull Request (PR) to merge your branch into 
 4. **Review:** At least one team member must approve the PR before it is merged.
 
 
-# 4. Documentation & $\LaTeX$
+## 4. Documentation & $\LaTeX$
 
 **Documentation is as important as code.**
 
 - **Code Documentation:** Use docstrings for Python functions so other team members can understand your logic.
 - **$\LaTeX$:** For long papers, we use Git to manage `.tex` files. This allows us to track exactly each version of the paper as we write and review it. For $\LaTeX$ manuscripts, there is a specific guide on how to collaborate [[15_local_latex|here]].
 
-> [!EXAMPLE] Python docstring
-> Later, when you learn Python, you will know what functions, strings, arguments and output are. However, for early coders or just curious here's an example.
-> ```python
-> def hubble_param(z, Omega):
-> 	"""
-> 	Hubble Parameter from Lambda-CDM model
-> 	H(z) = H0 * sqrt(Omega_m0*(1+z)^3 + Omega_r0*(1+z)^4 + Omega_Lambda0 + Omega_K0*(1+z)^2)
-> 	:param z: redshift scalar or array
-> 	:return: values for the hubble parameter in dependence of the parameters and redshift.
-> 	"""
-> 	Omega_m0, Omega_r0, Omega_Lambda0, Omega_K0, H0 = Omega
-> 	E_squared = (Omega_m0 * (1 + z) ** 3
-> 		+ Omega_r0 * (1 + z) ** 4
-> 		+ Omega_Lambda0
-> 		+ Omega_K0 * (1 + z) ** 2)
-> 	return H0 * np.sqrt(E_squared)
-> ```
+:::note[Example]
+Later, when you learn Python, you will know what functions, strings, arguments and output are. However, for early coders or just curious here's an example.
+```python
+def hubble_param(z, Omega):
+	"""
+	Hubble Parameter from Lambda-CDM model
+	H(z) = H0 * sqrt(Omega_m0*(1+z)^3 + Omega_r0*(1+z)^4 + Omega_Lambda0 + Omega_K0*(1+z)^2)
+	:param z: redshift scalar or array
+	:return: values for the hubble parameter in dependence of the parameters and redshift.
+	"""
+	Omega_m0, Omega_r0, Omega_Lambda0, Omega_K0, H0 = Omega
+	E_squared = (Omega_m0 * (1 + z) ** 3
+		+ Omega_r0 * (1 + z) ** 4
+		+ Omega_Lambda0
+		+ Omega_K0 * (1 + z) ** 2)
+	return H0 * np.sqrt(E_squared)
+```
+:::
+
 
 # 5. Best Practices for Research Software
 
 - **Commit Frequency:** Small, atomic commits are easier to debug than one massive "Update all files" commit.
 - **Stay Updated:** Regularly run `git pull origin main` to ensure you aren't working on outdated code.
-- **Code Review Etiquette:** Be constructive, accept criticism, defend your points. Always follow the [[21_CODE_OF_CONDUCT|code of conduct]].
+- **Code Review Etiquette:** Be constructive, accept criticism, defend your points. Always follow the [code of conduct](../201_code_of_conduct).
 
 ---
 
-> [!TIP]- Pro Tool: GitHub CLI (`gh`)
-> For a faster workflow, you can manage issues and PRs directly from your terminal:
-> - `gh issue list`: see what needs to be done
-> - `gh pr create`: open a new PR
-> - `gh pr checkout <number>`: view a teammate's code locally to review it.
->   
->   Visit [cli.github.com](https://cli.github.com) to install and access the documentation.
+:::tip[Pro Tool: GitHub CLI (`gh`)]
+For a faster workflow, you can manage issues and PRs directly from your terminal:
 
+- `gh issue list`: see what needs to be done
+- `gh pr create`: open a new PR
+- `gh pr checkout <number>`: view a teammate's code locally to review it.
+  
+Visit [cli.github.com](https://cli.github.com) to install and access the documentation.
+:::
 
-> [!SUCCESS]
-> Great, you can now collaborate and communicate with collaboration members!
-> If you were doing the tech foundations tutorial series, this is the next one: [[15_local_latex]].

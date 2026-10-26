@@ -10,6 +10,7 @@ If Markdown is a quick handwritten note (what we use on GitHub), LaTeX is a prof
 :::caution[Prerequisites]
 - [Unix](../101_unix)
 - [Terminal](../102_terminal)
+- [Git](../103_git)
 :::
 
 ## 1. Why Local LaTeX?

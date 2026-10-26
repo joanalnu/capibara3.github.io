@@ -1,12 +1,13 @@
 ---
-title: 21 Code of Conduct
+title: Code of Conduct
 author: joanalnu
 ---
 
 > Adapted from the Contributor Covenant, version 2.1
 
-> [!NOTE] TL;DR
-> Be kind, be respectful, be professional. We're a small student collaboration learning together. Treat others how you'd want to be treated. If someone's being hurtful or inappropriate, tell the team lead or somebody in your team.
+:::note[TL;DR]
+Be kind, be respectful, be professional. We're a small student collaboration learning together. Treat others how you'd want to be treated. If someone's being hurtful or inappropriate, tell the team lead or somebody in your team.
+:::
 
 ---
 
