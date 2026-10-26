@@ -3,28 +3,28 @@ title: 14 Creating Packages
 author: joanalnu
 ---
 
-# Goal
-In this onboarding tutorial you will learn how to set up your repo structure and additional files to create your own pip package as well as getting a DOI and uploading it to `pypi`.
+:::tip[Summary]
+In this tutorial you will learn how to set up your repo structure and additional files to create your own Python package as well as getting a DOI and uploading it to `pypi`.
+:::
 
-# Prerequisites
-- [02 Setting Up Unix](11_unix.md)
-- [03 Introduction to the Command Line](12_terminal.md)
-- [04 Configuring Git](13_git.md)
-- [05 Configuring GitHub](14_github.md)
-- [06 Collaborating on GitHub](15_github_2.md)
-- [07 Configuring Python & Pip](15_configuring_python_pip.md)
-- [08 Configuring Conda & venv](42_configuring_conda_venv.md)
+:::caution[Prerequisites]
+- [Unix](../coding/101_unix)
+- [Terminal](../coding/102_terminal)
+- [Git](../coding/103_git)
+- [GitHub](../coding/104_github)
+Some Python tutorials.
+:::
 
-# Steps
 
 ## 1. Introduction
+
 Many times you will need a specific function in multiple places, or other people will need it too. For example, you may want a cosmic ray flux function in terms of altitude for simulations, for science data analysis preparation, for detector design and calibration, etc. 
 
 Copying code between projects is error-prone and difficult to maintain: if you find a bug or improve the function, you have to update it everywhere. A better approach is to package your code as a reusable Python package. When you create a package, other developers (including yourself in other projects) can simply install it using `pip install your-package` and import the functions they need. You can also share your packages on [PyPI](https://pypi.org/), the official Python Package Index, making it accessible to the entire Python community.
 
 ## 2. Setup
 
-## 2.1 Repository Structure
+### 2.1 Repository Structure
 ```bash
 package/
     __init__.py
@@ -38,7 +38,7 @@ requirements.txt
 ```
 Where `package` is a directory for the package's scripts and `codeX.py` the files of the package.
 
-## 2. `__init__.py
+### 2.2 `__init__.py
 The `__init__.py` initiates the package and samples all the package's scripts.
 ```python
 from ._version import __version__
@@ -46,7 +46,7 @@ from .api/code1 import *  # import all functions
 from .api/code2 import *
 ```
 
-# 2.3 `setup.py`
+### 2.3 `setup.py`
 The `setup.py` file contains the metadata for the package and is necessary to build it. Here's a template:
 ```python
 from setuptools import setup, find_packages
@@ -84,13 +84,13 @@ setup(
 )
 ```
 
-## 2.4 `__version__.py`
+### 2.4 `__version__.py`
 This file containts version info. Needs to be updated for every new version.
 ```python
 __version__ = "1.0.0" # don't forget to update
 ```
 
-## 2.5 `requirements.txt`
+### 2.5 `requirements.txt`
 The `requirements.txt` file is a plain text file listing all the required libraries. This file is used to install libraries using pip
 ```shell
 pip install -r requirements.txt
@@ -103,17 +103,17 @@ numpy
 astropy
 ```
 
-Attention, if you are considering uploading the package for creating a DOI and/or publishing it by uploading to `pypi` make sure you have obtained the sufficient authorisation by the code owners and contributers and from the collaboration lead. Please, refer to the [Authorship](../../governance/2_authorship.md) and [Licensing](../../governance/3_licensing.md) policies.
+Attention, if you are considering uploading the package for creating a DOI and/or publishing it by uploading to `pypi` make sure you have obtained the sufficient authorisation by the code owners and contributers and from the collaboration lead. 
 
-# 3. Execution
+## 3. Execution
 
-## 3.1 Installing Your Package via pip
+### 3.1 Installing Your Package via pip
 1. Activate the conda environment where you want to install it.
 2. Navigate to the repository of the package (where `setup.py` is located).
 3. Run `pip install .`. Alternatively, you can enter `pip install <dirpath>`, where `dirpath` is the path to the package's directory in your computer.
 4. You may want to consider adding build-related (such as `build/` or `name.egg-info/`) files to `.gitignore`.
 
-## 3.2 Getting a DOI
+### 3.2 Getting a DOI
 A DOI is a Digital Object Identifier [doi.org](https://doi.org), most of scientific papers and package do have one, as it is straightforward for identification and citations.
 
 **Connecting GitHub to Zenodo**
@@ -132,7 +132,7 @@ A DOI is a Digital Object Identifier [doi.org](https://doi.org), most of scienti
 3. You can find the DOI next to your release tag.
 
 
-## 3.3 Publish Your Package on PyPi
+### 3.3 Publish Your Package on PyPi
 
 **Creating a PyPi Account**
 [PyPi](https://pypi.org) is the Python Package Index, which is a repository of software for the Python programming language, and the source of the `pip` command. In order to upload your package, you must create an account. Follow the steps in the website for this purpose.
@@ -176,8 +176,6 @@ pip install --index-url https://test.pypi.org/sample/ <package-name>
 ```
 
 
-# Troubleshooting
+## Troubleshooting
 Please, check the `pypi` [documentation](https://docs.pypi.org), Zenodo's [documentation](https://help.zenodo.org/docs/).
 
-# Next Steps
-In the next tutorial, you will learn to automate your package's tests: [15_automating_tests](15_automating_tests.md).

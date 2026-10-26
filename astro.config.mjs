@@ -56,9 +56,10 @@ export default defineConfig({
         {
           label: 'Infrastructure',
           items: [
-            { label: "Packages", slug: "infrastructure/46_packages" },
-            { label: "Docker", slug: "infrastructure/47_docker" },
-            { label: "Website", slug: "infrastructure/website"}
+            { label: "Packages", slug: "infrastructure/401_packages" },
+            { label: "Website", slug: "infrastructure/402_website" },
+            { label: "Documentation Maintenance", slug: "infrastructure/403_documentation" },
+            // { label: "Docker", slug: "infrastructure/47_docker" },
           ],
         },
 			],
