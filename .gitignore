@@ -1,3 +1,5 @@
 .DS_Store
 content/.trash
 public/
+node_modules
+.astro/
