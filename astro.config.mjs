@@ -34,6 +34,14 @@ export default defineConfig({
         {
           label: 'Python',
           items: [
+            { label: "Environments", slug: "python/301_environments" },
+            { label: "Running Code", slug: "python/302_running_pytho" },
+            // { label: "Writing Code", slug: "python/303_python_basics" },
+          ],
+        },
+        {
+          label: 'Old-Python',
+          items: [
 				    { label: "Configuration", slug: "python/15_configuring_python_pip" },
 				    { label: "Conda", slug: "python/31_conda_venv" },
 				    { label: "Jupyter", slug: "python/41_jupyter_notebook" },

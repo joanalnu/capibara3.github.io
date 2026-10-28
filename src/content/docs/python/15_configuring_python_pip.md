@@ -3,6 +3,8 @@ title: 07 Configuring Python & Pip
 author: joanalnu
 ---
 
+:::tip[Summary]
+In this tutorial you will learn to seutp your 
 # Goal
 In this tutorial you will learn to setup your computer to compile and run code in the Python programming language. Since many times you will need additional packages, such as Matplotlib for graphics, Pandas for tabular databases, or NumPy for all sorts of math functions, we will also guide you to installing `pip` a widely used Python package manager.
 
