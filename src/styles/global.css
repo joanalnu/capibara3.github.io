@@ -106,3 +106,33 @@ form.contact input, form.contact textarea {
 }
 form.contact input:focus, form.contact textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 .note { font-size: 0.85rem; color: var(--muted); }
+
+/* Notice + snapshot */
+.notice { border: 1px solid #d9a400; background: rgba(217,164,0,0.1); border-radius: 10px; padding: 0.9rem 1.1rem; margin: 0 0 1.5rem; }
+.notice strong { display: block; margin-bottom: 0.2rem; }
+.notice p { margin: 0; }
+.snapshot { border: 1px solid var(--border); background: var(--accent-soft); border-radius: 12px; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+.snapshot h2 { margin: 0 0 0.5rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.snapshot dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1.25rem; margin: 0; }
+.snapshot dt { color: var(--muted); }
+.snapshot dd { margin: 0; font-weight: 600; }
+.status { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.6rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+
+/* FAQ accordion */
+.faq details { border: 1px solid var(--border); border-radius: 10px; padding: 0 1rem; margin: 0.6rem 0; }
+.faq summary { cursor: pointer; font-weight: 600; padding: 0.85rem 0; }
+.faq summary:hover { color: var(--accent); }
+.faq details[open] summary { border-bottom: 1px solid var(--border); margin-bottom: 0.6rem; }
+.faq details > :last-child { margin-bottom: 1rem; }
+
+/* Join form */
+form.contact select { font: inherit; padding: 0.5rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); min-height: 9rem; }
+form.contact fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 1rem; }
+form.contact legend { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; padding: 0; }
+.steps { padding-left: 1.2rem; }
+
+/* Project sub-navigation */
+.subnav { display: flex; gap: 0.25rem; flex-wrap: wrap; border-bottom: 1px solid var(--border); margin: 0.5rem 0 1.75rem; }
+.subnav a { padding: 0.5rem 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -1px; font-size: 0.95rem; }
+.subnav a:hover { color: var(--accent); }
+.subnav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }

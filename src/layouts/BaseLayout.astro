@@ -10,8 +10,10 @@ const { title, description = 'CAPIBARA is an international student collaboration
 const pathname = Astro.url.pathname;
 
 const nav = [
+  { href: '/missions/', label: 'Missions' },
   { href: '/about/', label: 'About' },
   { href: '/blog/', label: 'News' },
+  { href: '/faq/', label: 'FAQ' },
   { href: '/contact/', label: 'Contact' },
 ];
 const isActive = (href: string) => pathname.startsWith(href);

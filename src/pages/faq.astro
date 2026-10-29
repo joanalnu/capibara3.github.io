@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Content } from '../data/faq.md';
+---
+
+<BaseLayout title="FAQ" description="Frequently asked questions about joining and working with the CAPIBARA Collaboration.">
+  <h1>Frequently asked questions</h1>
+  <p class="meta">Can't find your answer? <a href="/contact/">Get in touch</a>.</p>
+  <div class="faq prose">
+    <Content />
+  </div>
+</BaseLayout>

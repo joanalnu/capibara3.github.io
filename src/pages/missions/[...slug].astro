@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const all = await getCollection('missions');
+  return all.map((mission) => {
+    // "crd" and "crd/electronics" both belong to project "crd"
+    const project = mission.id.split('/')[0];
+    const pages = all
+      .filter((m) => m.id === project || m.id.startsWith(project + '/'))
+      .sort((a, b) => (a.id === project ? -1 : b.id === project ? 1 : a.data.order - b.data.order));
+    const parent = all.find((m) => m.id === project) ?? mission;
+    return { params: { slug: mission.id }, props: { mission, pages, parent } };
+  });
+}
+
+const { mission, pages, parent } = Astro.props;
+const { Content } = await render(mission);
+const { title, tagline, summary, status, notice, snapshot } = mission.data;
+const isSub = mission.id !== parent.id;
+---
+
+<BaseLayout title={title} description={summary}>
+  <p class="meta">
+    <a href="/missions/">← Missions</a>
+    {isSub && <> / <a href={`/missions/${parent.id}/`}>{parent.data.title}</a></>}
+  </p>
+
+  {pages.length > 1 && (
+    <nav class="subnav" aria-label={`${parent.data.title} pages`}>
+      {pages.map((p) => (
+        <a href={`/missions/${p.id}/`} aria-current={p.id === mission.id ? 'page' : undefined}>
+          {p.id === parent.id ? 'Overview' : (p.data.navTitle ?? p.data.title)}
+        </a>
+      ))}
+    </nav>
+  )}
+
+  {tagline && <p class="eyebrow">{tagline}</p>}
+  <h1>{title}</h1>
+  {status && <p><span class="status">{status}</span></p>}
+
+  {notice && (
+    <div class="notice" role="note">
+      <strong>{notice.title}</strong>
+      <p>{notice.text}</p>
+    </div>
+  )}
+
+  {snapshot.length > 0 && (
+    <aside class="snapshot">
+      <h2>Mission snapshot</h2>
+      <dl>
+        {snapshot.map((row) => (<><dt>{row.label}</dt><dd>{row.value}</dd></>))}
+      </dl>
+    </aside>
+  )}
+
+  <div class="prose">
+    <Content />
+  </div>
+</BaseLayout>

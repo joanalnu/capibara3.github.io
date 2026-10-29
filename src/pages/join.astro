@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Join us" description="Apply to join the CAPIBARA Collaboration. No experience required, fully remote, international team.">
+  <p class="eyebrow">Apply to the collaboration</p>
+  <h1>Become part of the next generation of space scientists and engineers</h1>
+
+  <ul>
+    <li><strong>No experience required</strong></li>
+    <li><strong>Fully remote</strong></li>
+    <li><strong>International team</strong></li>
+    <li><strong>Learn by doing</strong></li>
+  </ul>
+
+  <h2>Applying to a specific programme?</h2>
+  <p>
+    Have a look at the programme first:
+    <a href="/missions/gamma/">GAMMA</a> · <a href="/missions/crd/">CRD</a>.
+    You can pick one or more programmes in the form below.
+  </p>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li>
+      <strong>Read the guidelines.</strong> Review the
+      <a href="https://capibara3.github.io/docs/public/governance/MEMBERSHIP_POLICY.html">membership policy</a>
+      to understand expectations and roles in the collaboration.
+    </li>
+    <li>
+      <strong>Fill the form.</strong> It takes about 5 minutes. We use your answers to assign you to a working group,
+      not to filter. Everyone is welcome.
+    </li>
+    <li>
+      <strong>Submit documents.</strong> Once accepted, you'll sign a short membership agreement.
+      Optionally include a CV or motivation letter.
+    </li>
+  </ol>
+  <p class="meta">Questions first? Read the <a href="/faq/">FAQ</a>.</p>
+
+  <h2>Application form</h2>
+  <form class="contact" action="https://formspree.io/f/xdkrorpp" method="POST">
+    <fieldset>
+      <legend>Personal information</legend>
+      <label>Full name *
+        <input type="text" name="full_name" required placeholder="Your full name" />
+      </label>
+      <label>Email address *
+        <input type="email" name="email" required placeholder="you@university.edu" />
+      </label>
+      <label>Date of birth *
+        <input type="date" name="birthday" required />
+        <span class="note">Minors must submit a parental consent form.</span>
+      </label>
+      <label>GitHub username
+        <input type="text" name="github" placeholder="Optional" />
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your interests</legend>
+      <label>What would you like to work on? *
+        <span class="note">Hold Ctrl / Cmd to select multiple.</span>
+        <select name="groups[]" multiple required>
+          <option value="crd">🛰️ CAPIBARA-CRD (Cosmic Ray Detector)</option>
+          <option value="gamma">⚡ CAPIBARA-GAMMA (Gamma-ray / X-ray programme)</option>
+          <option value="sci">🔬 Specific research initiative</option>
+          <option value="comm">📢 Outreach, communication &amp; admin</option>
+          <option value="dev">💻 Software / hardware development</option>
+          <option value="idk">🎓 Not sure yet — just want to learn!</option>
+          <option value="other">💡 Other (bring your ideas!)</option>
+        </select>
+      </label>
+      <label>Please elaborate on your interests
+        <textarea name="specify_group" rows="3" placeholder="Tell us more about what excites you…"></textarea>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Additional information</legend>
+      <label>Background &amp; motivation
+        <textarea name="notes" rows="5" placeholder="Tell us about yourself — skills, background, what you hope to get out of CAPIBARA. No selection process; this helps us assign you well."></textarea>
+      </label>
+      <label>How did you hear about us?
+        <input type="text" name="referral" placeholder="Social media, a friend, a course…" />
+      </label>
+    </fieldset>
+
+    <p class="note">
+      By submitting this form, you consent to the processing of your personal data for evaluating your application.
+      Your information will not be shared outside CAPIBARA and can be deleted upon request. See our
+      <a href="https://capibara3.github.io/Documentation/2_governance/25_PRIVACY_POLICY.html">privacy policy</a>.
+    </p>
+    <button class="button" type="submit">Submit application</button>
+  </form>
+</BaseLayout>

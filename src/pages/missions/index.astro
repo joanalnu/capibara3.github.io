@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Only top-level entries (no '/' in the id) are projects; the rest are sub-pages.
+const missions = (await getCollection('missions', (m) => !m.id.includes('/'))).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Missions" description="The CAPIBARA missions: CRD and GAMMA.">
+  <h1>Missions</h1>
+  <p class="meta">Two programmes, one vision: building student-led instruments for high-energy astrophysics.</p>
+
+  <div class="grid">
+    {missions.map((m) => (
+      <article class="card">
+        {m.data.status && <span class="status">{m.data.status}</span>}
+        <h3 style="margin-top:0.75rem"><a href={`/missions/${m.id}/`}>{m.data.title}</a></h3>
+        <p>{m.data.summary}</p>
+      </article>
+    ))}
+  </div>
+</BaseLayout>
