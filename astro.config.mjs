@@ -35,22 +35,28 @@ export default defineConfig({
           label: 'Python',
           items: [
             { label: "Environments", slug: "python/301_environments" },
-            { label: "Running Code", slug: "python/302_running_pytho" },
-            // { label: "Writing Code", slug: "python/303_python_basics" },
+            { label: "Running Code", slug: "python/302_running_python" },
+            // { label: "Writing First Code", slug: "python/303_python_basics" },
+            // { label: "Functions & Modules", slug: "python/304_functions_modules" },
+            // { label: "NumPy & SciPy", slug: "python/305_numpy_scipy" },
+            // { label: "Pandas", slug: "python/306_pandas" },
+            // { label: "Visualisation", slug: "python/307_visualisation" },
+            // { label: "Collaboration Guidelines", slug: "python/308_guidelines" },
+            // { label: "Unit Testing", slug: "python/309_unit_testing" },
           ],
         },
-        {
-          label: 'Old-Python',
-          items: [
-				    { label: "Configuration", slug: "python/15_configuring_python_pip" },
-				    { label: "Conda", slug: "python/31_conda_venv" },
-				    { label: "Jupyter", slug: "python/41_jupyter_notebook" },
-				    { label: "Conda", slug: "python/42_configuring_conda_venv" },
-            { label: "NumPy & Pandas", slug: "python/43_numpy_pandas" },
-				    { label: "Matplotlib", slug: "python/44_matplotlib" },
-				    { label: "SciPt", slug: "python/45_scipy_fitting" },
-          ],
-        },
+        // {
+        //   label: 'Old-Python',
+        //   items: [
+        // { label: "Configuration", slug: "python/15_configuring_python_pip" },
+        // { label: "Conda", slug: "python/31_conda_venv" },
+        // { label: "Jupyter", slug: "python/41_jupyter_notebook" },
+        // { label: "Conda", slug: "python/42_configuring_conda_venv" },
+        //     { label: "NumPy & Pandas", slug: "python/43_numpy_pandas" },
+        // { label: "Matplotlib", slug: "python/44_matplotlib" },
+        // { label: "SciPt", slug: "python/45_scipy_fitting" },
+        //   ],
+        // },
         {
           label: 'Governance',
           items: [
