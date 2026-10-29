@@ -38,7 +38,7 @@ requirements.txt
 ```
 Where `package` is a directory for the package's scripts and `codeX.py` the files of the package.
 
-### 2.2 `__init__.py
+### 2.2 `__init__.py^`
 The `__init__.py` initiates the package and samples all the package's scripts.
 ```python
 from ._version import __version__
