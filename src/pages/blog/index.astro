@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title="News & Publications" description="Latest news and publications from the CAPIBARA Collaboration.">
+  <h1>News &amp; Publications</h1>
+  <p class="meta">Updates from the missions, the team and our research.</p>
+
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <span class="meta">
+          {fmt(post.data.date)}
+          {post.data.tags.length > 0 && (
+            <span class="tags">{post.data.tags.map((t) => <span class="tag">{t}</span>)}</span>
+          )}
+        </span>
+        <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+        <p style="margin:0;color:var(--muted)">{post.data.description}</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

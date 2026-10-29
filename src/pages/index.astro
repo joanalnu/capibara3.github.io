@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<BaseLayout title="CAPIBARA" description="An international student collaboration designing and building instruments to study gamma-ray bursts and cosmic rays.">
+  <section class="hero">
+    <p class="eyebrow">Student-led space science</p>
+    <h1>Exploring the High-Energy Universe</h1>
+    <p class="lead">
+      CAPIBARA is an international student collaboration learning about gamma-ray bursts and cosmic rays,
+      and designing and building the instruments to detect them.
+    </p>
+    <div class="actions">
+      <a class="button" href="/join/">Join us</a>
+      <a class="button ghost" href="/about/">About the collaboration</a>
+    </div>
+  </section>
+
+  <h2>Two missions, one vision</h2>
+  <div class="grid">
+    <article class="card">
+      <h3><a href="/missions/crd/">CRD · Cosmic Ray Detector</a></h3>
+      <p>
+        A student-built instrument on the OBA FARADAY CubeSat, flying in low Earth orbit to tell solar
+        from extra-solar primary cosmic rays using time-of-flight techniques.
+      </p>
+    </article>
+    <article class="card">
+      <h3><a href="/missions/gamma/">GAMMA · Multi-Messenger Astrophysics</a></h3>
+      <p>
+        A mission concept to observe gamma-ray bursts and advance our understanding of fundamental physics.
+      </p>
+    </article>
+  </div>
+
+  <h2>Latest news</h2>
+  {posts.length === 0 && <p class="meta">No posts yet.</p>}
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <span class="meta">{fmt(post.data.date)}</span>
+        <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+        <p style="margin:0;color:var(--muted)">{post.data.description}</p>
+      </li>
+    ))}
+  </ul>
+  <p><a href="/blog/">All news &amp; publications →</a></p>
+
+  <h2>Get involved</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Students</h3>
+      <p>Real missions, real data, real learning. No experience required — learn by doing. <a href="/join/">Apply now</a>.</p>
+    </div>
+    <div class="card">
+      <h3>Advisors</h3>
+      <p>Mentor the next generation and join our advisory board. <a href="/contact/">Get in touch</a>.</p>
+    </div>
+    <div class="card">
+      <h3>Institutions</h3>
+      <p>Partner with us for lab space, expertise, or co-supervision of student work. <a href="/contact/">Contact us</a>.</p>
+    </div>
+  </div>
+</BaseLayout>

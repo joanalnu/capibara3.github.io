@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact" description="Get in touch with the CAPIBARA Collaboration for partnerships, press or advising.">
+  <h1>Contact</h1>
+
+  <div class="card" style="margin-bottom:1rem">
+    <strong>Students:</strong> want to join? Use the <a href="/join/">application page</a> instead.
+  </div>
+  <div class="card">
+    <strong>Technical issues:</strong> for code-related matters, open an issue or PR on our
+    <a href="https://github.com/CAPIBARA3">GitHub repositories</a>.
+  </div>
+
+  <form class="contact" action="https://formspree.io/f/xqallkvn" method="POST">
+    <label>Your name *
+      <input type="text" name="name" required placeholder="Full name" />
+    </label>
+    <label>Email address *
+      <input type="email" name="email" required placeholder="you@example.com" />
+    </label>
+    <label>Organisation / affiliation
+      <input type="text" name="organisation" placeholder="University, company, etc." />
+    </label>
+    <label>Subject *
+      <input type="text" name="subject" required placeholder="Partnership proposal, press…" />
+    </label>
+    <label>Message *
+      <textarea name="message" required rows="6" placeholder="Your message here…"></textarea>
+    </label>
+    <p class="note">
+      By submitting this form, you consent to the processing of your personal data for the purpose of this contact.
+      See our <a href="https://capibara3.github.io/Documentation/2_governance/25_PRIVACY_POLICY.html">privacy policy</a>.
+    </p>
+    <button class="button" type="submit">Send message</button>
+  </form>
+
+  <p>
+    <a href="https://github.com/CAPIBARA3">GitHub</a> ·
+    <a href="https://www.instagram.com/capibara_collaboration/">Instagram</a> ·
+    <a href="https://www.linkedin.com/company/107744838/">LinkedIn</a>
+  </p>
+</BaseLayout>

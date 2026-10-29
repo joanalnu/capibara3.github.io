@@ -1,0 +1,108 @@
+:root {
+  --accent: #6a0dad;
+  --accent-soft: #f3e8fb;
+  --bg: #ffffff;
+  --text: #1c1b22;
+  --muted: #6b6b78;
+  --border: #e6e4ec;
+  --max: 44rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #b583e6;
+    --accent-soft: #241532;
+    --bg: #0f0e14;
+    --text: #ececf2;
+    --muted: #9a98a8;
+    --border: #2a2833;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 1rem; }
+h2 { font-size: 1.5rem; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+
+img { max-width: 100%; height: auto; border-radius: 8px; }
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--border); }
+.site-header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding-block: 1rem; flex-wrap: wrap;
+}
+.brand { font-weight: 700; letter-spacing: 0.08em; text-decoration: none; color: var(--text); }
+.brand span { color: var(--accent); }
+nav ul { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; }
+nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
+
+/* Main + footer */
+main { padding-block: 3rem 4rem; min-height: 60vh; }
+.site-footer { border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+.site-footer .container { padding-block: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.site-footer a { color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: 2rem 1rem; }
+.hero p.lead { font-size: 1.2rem; color: var(--muted); max-width: 36rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; color: var(--accent); font-weight: 600; margin: 0 0 0.75rem; }
+
+.button {
+  display: inline-block; padding: 0.7rem 1.25rem; border-radius: 8px;
+  background: var(--accent); color: #fff; text-decoration: none; font-weight: 600;
+  border: 1px solid var(--accent); cursor: pointer; font: inherit; font-weight: 600;
+}
+.button:hover { opacity: 0.9; }
+.button.ghost { background: transparent; color: var(--accent); }
+.actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+/* Cards */
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-top: 1rem; }
+.card { border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; background: var(--bg); }
+.card h3 { margin-top: 0; }
+.card p { margin: 0; color: var(--muted); }
+
+/* Blog */
+.post-list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.post-list li { padding-block: 1.25rem; border-bottom: 1px solid var(--border); }
+.post-list h2 { margin: 0.25rem 0; font-size: 1.3rem; }
+.post-list h2 a { color: var(--text); text-decoration: none; }
+.post-list h2 a:hover { color: var(--accent); }
+.meta { color: var(--muted); font-size: 0.85rem; }
+.tags { display: inline-flex; gap: 0.4rem; margin-left: 0.5rem; }
+.tag { background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 0.05rem 0.6rem; font-size: 0.75rem; }
+
+.prose > :first-child { margin-top: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); margin-left: 0; padding-left: 1rem; color: var(--muted); }
+.prose pre { overflow-x: auto; padding: 1rem; border-radius: 8px; }
+.prose code { font-size: 0.9em; }
+
+/* Form */
+form.contact { display: grid; gap: 1rem; margin-top: 1.5rem; }
+form.contact label { font-weight: 600; font-size: 0.9rem; display: grid; gap: 0.35rem; }
+form.contact input, form.contact textarea {
+  font: inherit; padding: 0.65rem 0.75rem; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--text);
+}
+form.contact input:focus, form.contact textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.note { font-size: 0.85rem; color: var(--muted); }

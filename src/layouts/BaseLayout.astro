@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'CAPIBARA is an international student collaboration building instruments for high-energy astrophysics.' } = Astro.props;
+const pathname = Astro.url.pathname;
+
+const nav = [
+  { href: '/about/', label: 'About' },
+  { href: '/blog/', label: 'News' },
+  { href: '/contact/', label: 'Contact' },
+];
+const isActive = (href: string) => pathname.startsWith(href);
+const fullTitle = title === 'CAPIBARA' ? title : `${title} · CAPIBARA`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(pathname, Astro.site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="/">CAPI<span>BARA</span></a>
+        <nav aria-label="Main">
+          <ul>
+            {nav.map((item) => (
+              <li>
+                <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+              </li>
+            ))}
+            <li><a href="/join/" class="button" style="padding:0.35rem 0.9rem;color:#fff;">Join us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <span>© {new Date().getFullYear()} CAPIBARA Collaboration</span>
+        <span>
+          <a href="https://github.com/CAPIBARA3">GitHub</a> ·
+          <a href="https://www.instagram.com/capibara_collaboration/">Instagram</a> ·
+          <a href="https://www.linkedin.com/company/107744838/">LinkedIn</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
