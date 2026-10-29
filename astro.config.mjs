@@ -42,21 +42,10 @@ export default defineConfig({
             // { label: "Pandas", slug: "python/306_pandas" },
             // { label: "Visualisation", slug: "python/307_visualisation" },
             // { label: "Collaboration Guidelines", slug: "python/308_guidelines" },
-            // { label: "Unit Testing", slug: "python/309_unit_testing" },
+            // { label: "Unit Testing", slug: "python/309_testing" },
+            { label: "More Coming Soon ...", slug: "python/zz_roadmap" },
           ],
         },
-        // {
-        //   label: 'Old-Python',
-        //   items: [
-        // { label: "Configuration", slug: "python/15_configuring_python_pip" },
-        // { label: "Conda", slug: "python/31_conda_venv" },
-        // { label: "Jupyter", slug: "python/41_jupyter_notebook" },
-        // { label: "Conda", slug: "python/42_configuring_conda_venv" },
-        //     { label: "NumPy & Pandas", slug: "python/43_numpy_pandas" },
-        // { label: "Matplotlib", slug: "python/44_matplotlib" },
-        // { label: "SciPt", slug: "python/45_scipy_fitting" },
-        //   ],
-        // },
         {
           label: 'Governance',
           items: [
